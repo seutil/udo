@@ -1,0 +1,66 @@
+@import url(core/normalize.css);
+@import url(core/fonts.css);
+@import url(core/themes.css);
+@import url(supportive/buttoned-link.css);
+@import url(supportive/button.css);
+
+body {
+    font-family: Inter;
+    background: var(--body-bg);
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    max-width: 415px;
+    width: 100%;
+    padding: 38px 30px;
+
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.form__header {
+    font-weight: var(--header-fw);
+    font-size: var(--header-fz);
+    color: var(--header-color);
+}
+
+.form__fields {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form__input {
+    width: 100%;
+    padding: 6px 0;
+
+    color: var(--text-color);
+    font-size: var(--text--fz);
+    font-weight: var(--text-fw);
+
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    outline: none;
+}
+
+.form__actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form__login-link {
+    width: 120px;
+}
+
+.form__button {
+    width: 120px;
+}
