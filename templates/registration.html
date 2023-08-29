@@ -26,6 +26,11 @@
                     <a class="form__login-link buttoned-link" href="login.html">log in</a>
                     <button class="form__button button" type="submit">register</button>
                 </div>
+                <div class="message">
+                    {% if message %}
+                        {{ message }}
+                    {% endif %}
+                </div>
             </form>
         </div>
     </main>
