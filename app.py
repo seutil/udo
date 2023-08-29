@@ -15,7 +15,7 @@ login_manager.init_app(app)
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), nullable=False)
+    email = db.Column(db.String(150), unique = True, nullable=False)
     confirm_password = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False, unique=True)
 
@@ -38,9 +38,6 @@ def register():
     if existing_user:
         return render_template('registration.html', message="Пользователь уже существует!")
 
-    if not existing_user or existing_user.password != confirm_password:
-        return render_template('registration.html', message="Пароли не совпадают или пользователь не найден!")
-
     new_user = User(email=email, password=password)
     db.session.add(new_user)
     db.session.commit()
@@ -54,4 +51,4 @@ def register():
 if __name__ == '__main__':
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     PORT = int(os.environ.get('SERVER_PORT', '5555'))
-    app.run(host=HOST, port=PORT)
+    app.run(host='0.0.0.0', port=5000)
